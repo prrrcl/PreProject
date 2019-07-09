@@ -20,5 +20,8 @@ Router.prototype.generateLandingPage = function (parent) {
   this.page = new LandingPage(parent);
   this.page.generate();
 }
-
+Router.prototype.generateMoviesPage = function (parent) {
+  this.page = new MoviesPage(parent);
+  this.page.generate();
+}
 let routerInstance = new Router();

@@ -42,8 +42,9 @@ function main() {
   }
   function changePage(event){
     // Para ver el valor del evento
-    console.dir(event.target.attributes.url.value)
+    // console.dir(event.target.attributes.url.value)
     let url = event.target.attributes.url.value;
+    event.preventDefault();
     routerInstance.buildDOM(url, layoutInstance.main)
   }
 }
