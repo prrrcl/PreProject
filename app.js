@@ -18,6 +18,7 @@ function main() {
 
   generateLayout();
   generateNavbar();
+  addListenersToNavbar();
   activateRouter();
 
   function generateLayout() {
@@ -33,7 +34,18 @@ function main() {
   function activateRouter(){
     routerInstance.buildDOM(ENTRY_POINT, layoutInstance.main);
   }
-
+  function addListenersToNavbar(){
+    let anchors = document.querySelectorAll('.nav-item');
+    anchors.forEach((navItem)=>{
+      navItem.addEventListener('click', changePage)
+    })
+  }
+  function changePage(event){
+    // Para ver el valor del evento
+    console.dir(event.target.attributes.url.value)
+    let url = event.target.attributes.url.value;
+    routerInstance.buildDOM(url, layoutInstance.main)
+  }
 }
 
 window.addEventListener('load', main);
