@@ -18,6 +18,7 @@ function main() {
 
   generateLayout();
   generateNavbar();
+  activateRouter();
 
   function generateLayout() {
     layoutInstance = new Layout(rootElement);
@@ -27,7 +28,10 @@ function main() {
   function generateNavbar() {
     navbarInstance = new Navbar(layoutInstance.header, links);
     navbarInstance.generate();
+  }
 
+  function activateRouter(){
+    routerInstance.buildDOM(ENTRY_POINT, layoutInstance.main);
   }
 
 }
